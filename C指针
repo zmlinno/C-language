@@ -1,0 +1,316 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+
+//int main() {
+//
+//	int a = 3;
+//	int b = 5;
+//	int m = 0;
+//	scanf("%d %d", &a, &b);
+//	if (a > b)
+//		m = a;
+//	else
+//		m = b;
+//	m = (a > b ? a : b); //条件操作符/三目操作符
+//	//这个和上面一样
+//	//如果 a>b那么m=a，反之b=a
+//	printf("%d\n", m);
+//	return 0;
+//}
+
+
+
+
+
+
+//int main() {
+//	int a = 3;
+//	int b = 5;
+//	int c = 100;
+//	int d = (a += 2, b = a - 5, c = a + b);
+//				//5      //0      5+0=5
+//	printf("%d\n", d);
+//	return 0;
+//}
+
+
+
+
+
+//int main() {
+//	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	printf("%d\n", (arr[4]));
+//					//这里有个下标访问操作符
+//	//3+5 3和5是操作数。+号是操作符
+//	//arr和4是【】这个操作符的操作数
+//	return 0;
+//}
+
+
+
+//
+//Add(int x, int y) {
+//	return x + y;
+//}
+//int main() {
+//	int a = 10;
+//	int b = 20;
+//	int sum = Add(a, b);
+//	printf("%d\n", sum);
+//	return 0;
+//
+//}
+
+
+
+
+//
+//int main() {
+//	auto int a = 10;//局部变量，自动创建，自动销毁
+//	后来慢慢就不写了
+//	register int num = 100;//建议把100放在寄存器中存储的意思
+//	int a = 10;
+//}
+
+
+
+
+////unsigned 这个名字太长
+////重新起名 如下 需要一个 关键字
+////相当于起了一个小名
+//typedef unsigned int uint;
+//
+//typedef struct Node
+//{
+//	int data;
+//	struct Node* next;
+//}Node;
+//
+//int main() {
+//	unsigned int num = 100;
+//	uint num2 = 200;
+//	// 这个uint和 上面那个一样的，
+//	//类型重命名 typedef，简化一些
+//	return 0;
+//}
+
+
+
+
+
+//static的作用是什么呢？
+//1.修饰局部变量
+//2.修饰全局变量
+//3.修饰函数
+//
+
+
+//1.static 修饰局部变量
+//一个普通的局部变量是放在栈区的，而被static修饰的局部 变量，是放在内存的静态区的
+//存储位置变化发生了变化
+//使得局部变量出了作用域也不会销毁，影响了变量的生命周期
+//void test()
+//{
+//	static int a = 1;//静态变量
+//	//如果没有static的话，相当于每次都回创作一个新的变量
+//	//所以打印会显示10个2
+//	//如果有static的话，那么会保存上一次的数字
+//	//打印出来会 2 3 4 5 6 7 8 9 10 
+//	//作用域不受影响
+//
+//	//静态区的变量整个程序结束才会销毁
+//	//栈区的变量出了这个范围就会销毁
+//	a++;
+//	printf("%d\n", a);
+//}
+//int main() {
+//	int i = 0;
+//	while (i < 10)
+//	{
+//		test();
+//		i++;
+//	}
+//	return 0;
+//}
+
+
+
+
+
+
+//2.static修饰全局变量
+//一个全局变量在整个工程中都可以使用
+//全局变量是具有外部链接属性的，在其他源文件内部
+// 只要适当地声明就可以使用
+//static修饰全局变量这时全局变量的外部链接属性就变成了
+//内部链接属性，只能在自己所在的.c文件内部使用，其他.c文件无法使用
+//影响了，变量的作用域
+//关于static 在源文件我只想自己用，不让别人用的时候
+//声明外部符号
+//这样就可以调动旁边里面的变量了
+//在同一工程里面就可以
+//extern int g_val;
+//
+//int main() 
+//{
+//	printf("%d\n", g_val);
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//3.static修饰函数
+//函数是具有外部链接属性
+//声明外部符号-函数
+//static 修饰函数后，函数的外部链接属性也就变成了内部链接属性
+//被static修饰的函数只能在自己所在的.c文件内使用，其他.c文件无法时使用
+
+
+//声明外部括号-函数
+//extern int add(int, int);
+//int main() {
+//
+//	int a = 10;
+//	int b = 20;
+//	int sum = Add(a, b);
+//	printf("%d\n", sum);
+//	
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+//#define 定义常量和宏
+//一旦定义好的常量就不能改了，比如M STR MAX
+//#define M 100
+//#define STR "hello bit"
+//#define MAX(x,y) ((x)>(y)?(x):(y))
+////定义常量的意思
+////定义成m=100， str=hello bit
+//int main()
+//{
+//	int a = 10;
+//	int b = 20;
+//	//int m = MAX(a, b);
+//	//a和b会被替换到宏体内，也就是会形成
+//	int m = (a > b ? a : b);
+//	//printf("%d\n", M);
+//	//printf("%s\n", STR);
+//	printf("%d\n",m);
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+// 指针
+
+//int main() {
+//	int a = 10; //向内存申请4个字节的空间
+//	//取a
+//	int* pa = &a;//a实际占用4个字节的空间，每个字节都有地址，但是&a拿到的是第一个字节的地址
+//	//取出的a的这一个地址也要保存到空间
+//	// &- 取地址操作符
+//	// * 解引用操作符
+//	//所以上面如何写？
+//	//上面pa叫指针变量
+//	printf("%d\n", a);
+//	*pa = 20;//如果这样写的话，那么a的值10就会被改
+//	printf("%d\n", a);
+//	return 0;
+//}
+
+
+
+//
+////如果只想拿到地址
+////%p--专门用来打印地址的
+//int main() {
+//	int a = 10;
+//	printf("%p\n", &a);
+//	return 0;
+//}
+
+
+
+
+
+
+
+//int main() {
+//	int* p1;
+//	char* p2;
+//	double* p3;
+//	//double虽然是8个字节，但是存放的地址就需要4个字节
+//	//地址大小都是一样的
+//	printf("%d\n", sizeof(p1));
+// printf("%d\n", sizeof(int*));
+//	printf("%d\n", sizeof(p2));
+// printf("%d\n", sizeof(char*));
+//	printf("%d\n", sizeof(p3));
+// printf("%d\n", sizeof(double*));
+// 改写成这样也是可以的
+//	return 0;
+//	//在指针上，32位系统是4个字节，64位系统是8个字节
+//	//虽然上面是 int char double，但是在指针的概念都是一样的大小
+//	//为什么一样？因为我们要把这个信息存到电脑里面，所以都是一样的
+//}
+
+
+
+
+
+//结构体
+struct Student {
+
+	char name[20];
+	int age;
+	char id[15];
+	float score;//成绩
+
+};
+
+int main() {
+	struct Student s1 = { "zhangsan","22","2023",100.0f };
+	//结构体需要用大括号里面写
+	printf("%s %d %s %f\n", s1.name, s1.age, s1.id, s1.score);
+	struct Student* pa = &s1;
+	printf("%s %d %s %f\n", (*pa).age, (*pa).name, (*pa).id, (*pa).score);
+	//通过指针一样可以访问s1.
+	printf("%s %d %s %f\n", pa->age, pa->id, pa->name, pa->score);
+	//上面写的这个和其他都是一样的
+
+	//结构体变量.成员
+	//结构体指针---可以找到成员
+	struct Student s2;
+	struct Student s3;
+
+	return 0;
+
+}
