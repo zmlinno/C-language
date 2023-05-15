@@ -1,0 +1,203 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+//
+//EOF는 파일의 끝을 나타내는 표식입니다.
+//end of file
+//
+
+#include <stdio.h>
+
+//int main()
+//{
+//	int a = 0;
+//	int b = 0;
+//	//
+//	// scanf 함수가 실패할 경우 EOF를 반환합니다.
+//	//정상적으로 읽혔을 경우, 읽은 데이터의 개수를 반환합니다.
+//	int ret = scanf("%d %d", &a, &b);
+//
+//	printf("ret = %d\n", ret);
+//	printf("a = %d\n", a);
+//	printf("b = %d\n", b);
+//
+//	return 0;
+//}
+
+//int main()
+//{
+//	//권장되는 기능
+//	register int a = 10;
+//
+//	return 0;
+//}
+
+//typedef unsigned int uint;
+//
+//int main()
+//{
+//	unsigned int age;
+//	uint age2;
+//
+//	return 0;
+//}
+//
+
+//static 정적인
+//三种用法：
+// 세 가지 사용 방법:
+// 1. 지역 변수 수정
+// 2. 전역 변수 수정
+//
+
+// 지역 변수 수정
+//void test()
+//{
+//	int a = 0;
+//	a++;
+//	printf("%d\n", a);
+//}
+//
+//int main()
+//{
+//	int i = 0;
+//
+//	while (i<10)
+//	{
+//		test();
+//		i++;
+//	}
+//
+//	return 0;
+//}
+
+// 전역 변수 수정
+// 외부 기호 선언
+//extern int g_val;
+//
+//int main()
+//{
+//	printf("%d\n", g_val);
+//
+//	return 0;
+//}
+
+
+// 외부 함수 선언
+//extern int Add(int x, int y);
+//
+////함수 수정
+//int main()
+//{
+//	int a = 10;
+//	int b = 20;
+//	int c = Add(a, b);
+//	printf("%d\n", c);
+//
+//	return 0;
+//}
+
+
+//#define 기호 정의 / 매크로
+//
+//#define M 100
+//
+//int Max(int x, int y)
+//{
+//	//if (x > y)
+//	//	return x;
+//	//else
+//	//	return y;
+//	return (x > y ? x : y);
+//}
+//
+//#define MAX(x,y)  (x>y?x:y)
+//#define ADD(x,y)  ((x)+(y))
+//
+//int main()
+//{
+//	//int a = M;
+//	//printf("%d\n", M);
+//	//printf("%d\n", a);
+//
+//	int a = 10;
+//	int b = 20;
+//	//int m = Max(a, b);
+//	int m = MAX(a, b);
+//	//int m = (a > b ? a : b);
+//	printf("%d\n", m);
+//
+//	return 0;
+//}
+//
+//
+//int main()
+//{
+//	int a = 1;//메모리에 4바이트를 할당합니다.
+//	int * pa = &a;
+//	*pa = 20;////역참조 연산 - pa의 주소로 이동하여 a를 찾습니다. *pa는 a입니다.
+//	//a = 20;
+//
+//	printf("%d\n", a);
+//
+//	/*printf("%p\n", &a);
+//	printf("%p\n", pa);*/
+//
+//
+//
+//	//pa는 변수이며, 주소를 저장하는 변수입니다.
+//	//而地址又叫指针
+//	//所以在C语言中把pa叫指针变量（指针变量是存放指针的变量）
+//	// 주소를 가리키는 포인터라고 C 언어에서 부릅니다.
+//	// 
+//	//&a;//& 주소 연산자
+//	//printf("%p\n", &a);
+//	//&a a는 a가 차지하는 4바이트 중 첫 번째 바이트의 주소를 가져옵니다.
+//	
+//	//printf("%d\n", sizeof(a));
+//		
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	char ch = 'w';
+//	char* pc = &ch;
+//	//pc를 사용하여 ch의 값을 'b'로 변경합니다.
+//	*pc = 'b';
+//	printf("%c\n", *pc);//b
+//
+//	ch = 'q';
+//	printf("%c\n", *pc);//q
+//
+//	return 0;
+//}
+
+//
+// 포인터
+// 1. 포인터는 주소입니다.
+// 2. 구어체에서 포인터는 일반적으로 포인터 변수를 가리킵니다
+//
+//
+//int main()
+//{
+//	int a = 10;
+//	int* p = &a;
+//	return 0;
+//}
+//
+
+//포인터 변수의 크기는 얼마인가요?
+
+//int main()
+//{
+//	char* pc;
+//	int* pi;
+//
+//	printf("%zd\n", sizeof(pc));
+//	printf("%zd\n", sizeof(pi));
+// // x86은 32비트 환경입니다.
+// // x64은 64비트 환경입니다.
+//	return 0;
+//}
+//
